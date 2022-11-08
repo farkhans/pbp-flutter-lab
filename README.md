@@ -18,12 +18,15 @@ Sebaliknya, *stateful widget* adalah *widget* yang *state*-nya dapat diubah sete
 -   `Scaffold`, implementasi struktur tata letak visual desain material dasar
 -   `AppBar`, sebuah baris paling atas yang menampilkan judul
 -   `Center`, membuat *layout* dan menyusunnya di tengah
--   `Column`, mebuat *layout* dan menyusunnya secara vertikal
+-   `Column`, membuat *layout* dan menyusunnya secara vertikal
 -   `Text`, membuat teks
+-   `TextStyle`mengatur *style* dari `Text`
 -   `Padding`, membuat *padding* agar elemen di dalamnya bisa memiliki jarak dengan bagian tepi layar
+-   `EdgeInsets`, untuk menentukan besar *offset* pada `Padding`
 -   `Row`, seperti `Column`, tetapi horizontal
 -   `Visibility`, membuat *widget* yang bisa diatur terlihat atau tidak
 -   `FloatingActionButton`, mengubah *state* ketika ditekan sehingga isinya bisa berubah, bisa dikatakan juga sebagai pemicu *event*
+-   `Icon`, memunculkan ikon di `FloatingActionButton`
 
 #### Fungsi `setState()`
 Fungsi `setState()` berfungsi untuk mengubah *state* dari *state object*. Ketika fungsi ini dipanggil, fungsi ini akan memberitahu *framework* bahwa *internal state* dari suatu objek telah berubah dan perubahan tersebut bisa saja memengaruhi UI pada suatu *subtree* sehingga membuat *framework* menskedulkan *build* suatu *state object*.
