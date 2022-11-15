@@ -23,14 +23,27 @@ class _MyDataState extends State<MyData> {
       body: ListView.builder(
         itemBuilder: ((context, index) {
           Budget budget = Budget.listBudget[index];
-          return Container (
+          return Container(
             decoration: BoxDecoration(
-              color: Colors.white70,
-              border: Border.all(
-                color: Colors.black54,
-              ),
-              borderRadius: BorderRadius.circular(5.0),
-            ),
+                color: Colors.white70,
+                border: Border.all(
+                  color: Colors.black54,
+                ),
+                borderRadius: BorderRadius.circular(5.0),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color.fromARGB(221, 65, 64, 64),
+                    offset: Offset(0, 1.5),
+                    blurRadius: 2,
+                    spreadRadius: 0,
+                  ),
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: const Offset(0, 0),
+                    blurRadius: 0,
+                    spreadRadius: 0,
+                  )
+                ]),
             margin: const EdgeInsets.only(
               top: 10.0,
               left: 10.0,
@@ -52,7 +65,7 @@ class _MyDataState extends State<MyData> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row (
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
@@ -60,13 +73,11 @@ class _MyDataState extends State<MyData> {
                             style: const TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 18,
-                            ),  
+                            ),
                           ),
                           Text(
                             DateFormat.yMMMEd().format(budget.tanggal),
-                            style: const TextStyle(
-                              fontStyle: FontStyle.italic
-                            ),
+                            style: const TextStyle(fontStyle: FontStyle.italic),
                           ),
                         ],
                       ),
