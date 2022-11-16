@@ -5,6 +5,7 @@ import 'data.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
+  static String currentPage = "counter_7";
 
   @override
   Widget build(BuildContext context) {
@@ -13,17 +14,18 @@ class MyDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            margin: EdgeInsets.zero,
-            padding: EdgeInsets.zero,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                colorFilter: ColorFilter.mode(Colors.black87.withOpacity(0.2), BlendMode.srcATop),
-                image: const AssetImage('assets/images/bliss.png'),
+              margin: EdgeInsets.zero,
+              padding: EdgeInsets.zero,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  colorFilter: ColorFilter.mode(
+                      Colors.black87.withOpacity(0.2), BlendMode.srcATop),
+                  image: const AssetImage('assets/images/bliss.png'),
                 ),
-            ),
-            child: Stack(
-              children: const [
+              ),
+              child: Stack(
+                children: const [
                   Positioned(
                     bottom: 12.0,
                     left: 16.0,
@@ -36,10 +38,12 @@ class MyDrawer extends StatelessWidget {
                       ),
                     ),
                   ),
-              ],
-            )
-          ),
+                ],
+              )),
           ListTile(
+            contentPadding: const EdgeInsets.only(
+              left: 8,
+            ),
             title: Row(
               children: const [
                 Icon(Icons.home),
@@ -50,11 +54,21 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             onTap: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const MyHomePage()));
+              if (currentPage == 'counter_7') {
+                Navigator.pop(context);
+              } else {
+                currentPage = 'counter_7';
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MyHomePage()));
+              }
             },
           ),
           ListTile(
+            contentPadding: const EdgeInsets.only(
+              left: 8,
+            ),
             title: Row(
               children: const [
                 Icon(Icons.attach_money),
@@ -65,11 +79,21 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             onTap: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const MyFormPage()));
+              if (currentPage == 'tambah_budget') {
+                Navigator.pop(context);
+              } else {
+                currentPage = 'tambah_budget';
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MyFormPage()));
+              }
             },
           ),
           ListTile(
+            contentPadding: const EdgeInsets.only(
+              left: 8,
+            ),
             title: Row(
               children: const [
                 Icon(Icons.list),
@@ -80,8 +104,13 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             onTap: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const MyData()));
+              if (currentPage == 'data_budget') {
+                Navigator.pop(context);
+              } else {
+                currentPage = 'data_budget';
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const MyData()));
+              }
             },
           ),
         ],
