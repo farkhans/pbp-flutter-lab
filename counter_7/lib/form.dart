@@ -30,7 +30,7 @@ class _MyFormPageState extends State<MyFormPage> {
         key: _formKey,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: ListView(
+          child: Column(
             children: [
               TextFormField(
                 controller: _judulController,
@@ -126,17 +126,18 @@ class _MyFormPageState extends State<MyFormPage> {
                         height: 40,
                         child: TextButton(
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.blue),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.blue),
                           ),
                           onPressed: () {
                             showDatePicker(
                               context: context,
-                              initialDate: DateTime.now(),
+                              initialDate: _tanggalBudget,
                               firstDate: DateTime(1970),
                               lastDate: DateTime(2099),
                             ).then((date) {
                               setState(() {
-                                _tanggalBudget = date!;
+                                if (date != null) _tanggalBudget = date;
                               });
                             });
                           },
@@ -152,9 +153,7 @@ class _MyFormPageState extends State<MyFormPage> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 300,
-              ),
+              const Spacer(),
               Center(
                 child: SizedBox(
                   width: 100,
@@ -165,12 +164,13 @@ class _MyFormPageState extends State<MyFormPage> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        Budget.listBudget.add(
-                            Budget(_judulBudget, _nominalBudget, _jenisBudget, _tanggalBudget));
+                        Budget.listBudget.add(Budget(_judulBudget,
+                            _nominalBudget, _jenisBudget, _tanggalBudget));
                         _judulController.clear();
                         _nominalController.clear();
                         _judulBudget = "";
                         _nominalBudget = "";
+                        _tanggalBudget = DateTime.now();
                       }
                     },
                     child: const Text(
@@ -182,6 +182,7 @@ class _MyFormPageState extends State<MyFormPage> {
                   ),
                 ),
               ),
+              const SizedBox(height: 10),
             ],
           ),
         ),

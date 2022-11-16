@@ -25,21 +25,21 @@ class _MyDataState extends State<MyData> {
           Budget budget = Budget.listBudget[index];
           return Container(
             decoration: BoxDecoration(
-                color: Colors.white70,
+                color: Colors.white,
                 border: Border.all(
                   color: Colors.black54,
                 ),
                 borderRadius: BorderRadius.circular(5.0),
                 boxShadow: const [
                   BoxShadow(
-                    color: Color.fromARGB(221, 65, 64, 64),
+                    color: Colors.black54,
                     offset: Offset(0, 1.5),
                     blurRadius: 2,
                     spreadRadius: 0,
                   ),
                   BoxShadow(
                     color: Colors.white,
-                    offset: const Offset(0, 0),
+                    offset: Offset(0, 0),
                     blurRadius: 0,
                     spreadRadius: 0,
                   )
