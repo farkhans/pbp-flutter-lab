@@ -82,9 +82,9 @@ class _MyDataState extends State<MyData> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 5),
+                      const SizedBox(height: 3),
                       Text(budget.nominal),
-                      // const SizedBox(height: 5),
+                      const SizedBox(height: 3),
                       Text(budget.jenis)
                     ],
                   ),

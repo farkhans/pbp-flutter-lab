@@ -12,6 +12,33 @@ class MyDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
+          DrawerHeader(
+            margin: EdgeInsets.zero,
+            padding: EdgeInsets.zero,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                colorFilter: ColorFilter.mode(Colors.black87.withOpacity(0.2), BlendMode.srcATop),
+                image: const AssetImage('assets/images/bliss.png'),
+                ),
+            ),
+            child: Stack(
+              children: const [
+                  Positioned(
+                    bottom: 12.0,
+                    left: 16.0,
+                    child: Text(
+                      'Tugas PBP - Flutter',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+              ],
+            )
+          ),
           ListTile(
             title: Row(
               children: const [
@@ -48,7 +75,7 @@ class MyDrawer extends StatelessWidget {
                 Icon(Icons.list),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0),
-                  child: Text('Daftar Budget'),
+                  child: Text('Data Budget'),
                 )
               ],
             ),
