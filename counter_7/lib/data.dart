@@ -67,6 +67,7 @@ class _MyDataState extends State<MyData> {
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             budget.judul,
@@ -83,7 +84,7 @@ class _MyDataState extends State<MyData> {
                       ),
                       const SizedBox(height: 5),
                       Text(budget.nominal),
-                      const SizedBox(height: 5),
+                      // const SizedBox(height: 5),
                       Text(budget.jenis)
                     ],
                   ),
