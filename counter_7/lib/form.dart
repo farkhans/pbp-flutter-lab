@@ -12,7 +12,7 @@ class MyFormPage extends StatefulWidget {
 class _MyFormPageState extends State<MyFormPage> {
   final _formKey = GlobalKey<FormState>();
   String _judulBudget = "";
-  String _nominalBudget = "";
+  int _nominalBudget = 0;
   String _jenisBudget = "Pemasukan";
   DateTime _tanggalBudget = DateTime.now();
   List<String> listJenisBudget = ['Pemasukan', 'Pengeluaran'];
@@ -74,11 +74,11 @@ class _MyFormPageState extends State<MyFormPage> {
                 ),
                 onChanged: (String? value) {
                   setState(() {
-                    _nominalBudget = value!;
+                    _nominalBudget = int.parse(value!);
                   });
                 },
                 onSaved: (String? value) {
-                  _nominalBudget = value!;
+                  _nominalBudget = int.parse(value!);
                 },
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
@@ -169,7 +169,7 @@ class _MyFormPageState extends State<MyFormPage> {
                         _judulController.clear();
                         _nominalController.clear();
                         _judulBudget = "";
-                        _nominalBudget = "";
+                        _nominalBudget = 0;
                         _tanggalBudget = DateTime.now();
                       }
                     },
@@ -192,7 +192,8 @@ class _MyFormPageState extends State<MyFormPage> {
 }
 
 class Budget {
-  String judul, jenis, nominal;
+  String judul, jenis;
+  int nominal;
   DateTime tanggal;
   static List<Budget> listBudget = [];
   Budget(this.judul, this.nominal, this.jenis, this.tanggal);
