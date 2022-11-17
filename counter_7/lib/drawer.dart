@@ -28,7 +28,7 @@ class MyDrawer extends StatelessWidget {
                 children: const [
                   Positioned(
                     bottom: 12.0,
-                    left: 16.0,
+                    left: 10,
                     child: Text(
                       'Tugas PBP - Flutter',
                       style: TextStyle(
