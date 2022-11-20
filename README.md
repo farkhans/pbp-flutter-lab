@@ -74,15 +74,15 @@ Beberapa *widget* saya gunakan di [tugas sebelumnya](#widget-yang-digunakan) dan
 -   `AssetImage`, menampilkan gambar yang tersimpan
 -   `Spacer`, mengisi ruang kosong yang tersedia
   
-### Jenis *Event* pada Flutter
+#### Jenis *Event* pada Flutter
 -   `onPressed`
 -   `onChanged`
 -   `onSaved`
 
-### Cara Kerja `Navigator`
+#### Cara Kerja `Navigator`
 `Navigator` mengontrol halaman yang dikenal dengan nama *route(s)* dengan menggunakan *stack*. Jadi, *route* yang kita buat itu akan menjadi *stack of routes* setiap kali kita berpindah halaman. Susunannya *stack*-nya juga bergantung metode *push* yang kita gunakan.
 
-### Cara Implementasi
+#### Cara Implementasi
 1.  Membuat beberapa file baru untuk beberapa halaman
 2.  Membuat `Drawer` dan menambahkannya ke file lain
 3.  Membuat `Form`, termasuk input-inputnya
