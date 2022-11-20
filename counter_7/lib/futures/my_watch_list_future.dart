@@ -13,15 +13,5 @@ Future<List<MyWatchList>> fetchMyWatchList() async {
     },
   );
 
-  var data = jsonDecode(utf8.decode(response.bodyBytes));
-
-  List<MyWatchList> myWatchList = [];
-
-  for (var d in data) {
-    if (d != null) {
-      myWatchList.add(MyWatchList.fromJson(d));
-    }
-  }
-
-  return myWatchList;
+  return myWatchListFromJson(utf8.decode(response.bodyBytes));
 }

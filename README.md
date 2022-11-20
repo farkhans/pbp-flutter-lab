@@ -49,7 +49,7 @@ Pada dasarnya kedua *keyword* ini memiliki fungsi yang sama, yakni membuat varia
 Hal yang dilakukan oleh kedua *method* itu sama, yakni mengganti halaman yang sedang kita lihat. Namun, perbedaannya adalah `Navigator.push` menimpa halaman sebelumnya dengan halaman baru dan halaman sebelumnya masih bisa kita akses jika kita ingin kembali. Jika menggunakan `Navigator.push`, terdapat ikon panah kiri di *header* yang jika ditekan akan mengembalikan halaman sebelumnya. Sementara itu, `Navigator.pushReplacement` akan menggantikan halaman yang sudah ada dan menggantinya dengan halaman yang baru. Halaman yang sebelumnya akan dibuang begitu halaman baru sudah siap.
 
 #### *Widget* yang Digunakan
-Beberapa *widget* saya gunakan di [Tugas 1](#widget-yang-digunakan) dan saya menambahkan beberapa *widget* yang saya tambahkan di tugas ini
+Beberapa *widget* saya gunakan di [tugas sebelumnya](#widget-yang-digunakan) dan saya menambahkan beberapa *widget* yang saya tambahkan di tugas ini
 -   `Form`, membuat formulir yang bisa diisi
 -   `SizedBox`, membuat sebuah segi empat
 -   `ListView`, seperti `Column`, tetapi *scrollable*
@@ -65,6 +65,14 @@ Beberapa *widget* saya gunakan di [Tugas 1](#widget-yang-digunakan) dan saya men
 -   `ButtonStyle`, *styling* tombol
 -   `Navigator`, pengatur halaman yang ditampilkan
 -   `Drawer`, membuat *sidebar* yang bisa ditampilkan ketika *hamburger icon* ditekan
+-   `BoxShadow`, membuat bayangan pada `Container`
+-   `BorderRadius`, membuat border yang melengkung
+-   `BoxDecoration`, *styling* sebuah kotak
+-   `DecorationImage`, menambahkan gambar ke sebuah kotak
+-   `Stack`, membuat *widget* bertumpuk
+-   `Positioned`, membuat *widget* memiliki posisi tertentu
+-   `AssetImage`, menampilkan gambar yang tersimpan
+-   `Spacer`, mengisi ruang kosong yang tersedia
   
 ### Jenis *Event* pada Flutter
 -   `onPressed`
@@ -81,3 +89,49 @@ Beberapa *widget* saya gunakan di [Tugas 1](#widget-yang-digunakan) dan saya men
 4.  Membuat class `Budget` yang merepresentasikan objek budget
 5.  Membuat halaman yang menampilkan budget-budget, termasuk instal `DateFormat`
 
+***
+### Tugas 2
+
+#### Mengambil Data JSON Tanpa Model
+Hal tersebut bisa saja dilakukan. Misalkan kita punya JSON sebagai berikut.
+```
+[
+    {
+        'name' : 'Jane Doe',
+        'id' : 1
+    },
+    {
+        'name' : 'John Doe',
+        'id' : 2
+    }
+]
+```
+Kita bisa membuat dua buah `List`, `List` pertama menyimpan nama dan `List` kedua menyimpan id. Namun, hal ini jelas tidak nyaman untuk diimplementasikan jika modelnya memiliki banyak atribut. Dengan menggunakan OOP, hal tersebut lebih mudah dan nyaman untuk dilakukan.
+
+#### *Widget* yang digunakan
+Saya hanya menambahkan *widget* baru, untuk *widget* lainnya bisa merujuk ke [sini](#widget-yang-digunakan) dan [sini](#widget-yang-digunakan-1)
+-   `FutureBuilder`, *widget* yang terbentuk berdasarkan hasil yang didapat dari sebuah `Future`
+-   `AsyncSnapshot`, representasi *immutable* sebagai hasil terbaru dari *event* asinkronus
+-   `CircularProgressIndicator`, sebuah lingkaran berputar ketika `event` asinkronus terjadi
+-   `GestureDetector`, deteksi gestur, pada kali ini adalah sentuhan tunggal pada `Container` tiap *watchlist*
+-   `Checkbox`, membuat kotak yang bisa diberi ceklis, bisa memberikan nilai `boolean`
+-   `Align`, membuat *widget* di dalamnya
+-   `RichText`, membuat teks yang memiliki *style* yang berbeda-beda
+-   `TextSpan`, membuat teks di dalam `RichText`
+
+#### Mekanisme Pengambilan Data dari JSON
+1.  Mengambil data JSON, biasanya akan berbentuk `String` jika diambil dari internet
+2.  *Decode* data JSON
+3.  Konversi data yang telah di-*decode* sesuai `Model`
+4.  Data yang kita dapatkan bisa kita tampilkan
+
+#### Cara Implementasi
+1.  Membuat halaman baru sederhana untuk daftar *watchlist*
+2.  Menambahkan *routing* ke daftar *watchlist* di *drawer*
+3.  Membuat model `MyWatchList`
+4.  Membuat `Future` yang mengembalikan data `MyWatchList`
+5.  Membuat `FutureBuilder` di halaman daftat *watchlist*
+6.  Membuat halaman detail *watchlist*
+7.  Mengatur *routing* berkaitan dengan halaman detail *watchlist*
+
+Tantangan yang saya hadapi adalah menggunakan data lokal terbaru setiap kali memanggil halaman daftar *watchlist*. Untuk ini, saya membuat `static List` di kelas `MyWatchList` yang menyimpan *watchlist* dan `List` ini akan diisi dengan data hasil *fetch*. Namun, pengisian dengan hasil *fetch* cukup dilakukan satu kali saja. Oleh karena itu, saya membuat *flag* di halaman daftar *watchlist* yang menandakan *fetch* pertama. Jika sudah pernah di-*fetch*, data yang digunakan adalah data sebelumnya, bukan data hasil *fetch*.

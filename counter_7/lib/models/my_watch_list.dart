@@ -15,6 +15,7 @@ class MyWatchList {
         required this.fields,
     });
 
+    static List<MyWatchList> watchList = [];
     String model;
     int pk;
     Fields fields;

@@ -56,7 +56,6 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             onTap: () {
-              MyWatchListPage.first = true;
               if (currentPage == 'counter_7') {
                 Navigator.pop(context);
               } else {
@@ -82,7 +81,6 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             onTap: () {
-              MyWatchListPage.first = true;
               if (currentPage == 'tambah_budget') {
                 Navigator.pop(context);
               } else {
@@ -108,7 +106,6 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             onTap: () {
-              MyWatchListPage.first = true;
               if (currentPage == 'data_budget') {
                 Navigator.pop(context);
               } else {
@@ -135,10 +132,10 @@ class MyDrawer extends StatelessWidget {
               if (currentPage == 'my_watch_list') {
                 Navigator.pop(context);
               } else if (currentPage == 'detail') {
+                currentPage = 'my_watch_list';
                 Navigator.pop(context);
                 Navigator.pop(context);
-              }
-              else {
+              } else {
                 currentPage = 'my_watch_list';
                 Navigator.pushReplacement(
                     context,
