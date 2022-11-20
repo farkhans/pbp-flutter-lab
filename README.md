@@ -90,7 +90,7 @@ Beberapa *widget* saya gunakan di [tugas sebelumnya](#widget-yang-digunakan) dan
 5.  Membuat halaman yang menampilkan budget-budget, termasuk instal `DateFormat`
 
 ***
-### Tugas 2
+### Tugas 3
 
 #### Mengambil Data JSON Tanpa Model
 Hal tersebut bisa saja dilakukan. Misalkan kita punya JSON sebagai berikut.
