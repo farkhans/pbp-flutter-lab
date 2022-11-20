@@ -15,32 +15,33 @@ class MyDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-              margin: EdgeInsets.zero,
-              padding: EdgeInsets.zero,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  colorFilter: ColorFilter.mode(
-                      Colors.black87.withOpacity(0.2), BlendMode.srcATop),
-                  image: const AssetImage('assets/images/bliss.png'),
-                ),
+            margin: EdgeInsets.zero,
+            padding: EdgeInsets.zero,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                colorFilter: ColorFilter.mode(
+                    Colors.black87.withOpacity(0.2), BlendMode.srcATop),
+                image: const AssetImage('assets/images/bliss.png'),
               ),
-              child: Stack(
-                children: const [
-                  Positioned(
-                    bottom: 12.0,
-                    left: 10,
-                    child: Text(
-                      'Tugas PBP - Flutter',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
+            ),
+            child: Stack(
+              children: const [
+                Positioned(
+                  bottom: 12.0,
+                  left: 10,
+                  child: Text(
+                    'Tugas PBP - Flutter',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                ],
-              )),
+                ),
+              ],
+            ),
+          ),
           ListTile(
             contentPadding: const EdgeInsets.only(
               left: 8,
@@ -55,6 +56,7 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             onTap: () {
+              MyWatchListPage.first = true;
               if (currentPage == 'counter_7') {
                 Navigator.pop(context);
               } else {
@@ -80,6 +82,7 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             onTap: () {
+              MyWatchListPage.first = true;
               if (currentPage == 'tambah_budget') {
                 Navigator.pop(context);
               } else {
@@ -105,6 +108,7 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
             onTap: () {
+              MyWatchListPage.first = true;
               if (currentPage == 'data_budget') {
                 Navigator.pop(context);
               } else {
@@ -130,10 +134,16 @@ class MyDrawer extends StatelessWidget {
             onTap: () {
               if (currentPage == 'my_watch_list') {
                 Navigator.pop(context);
-              } else {
+              } else if (currentPage == 'detail') {
+                Navigator.pop(context);
+                Navigator.pop(context);
+              }
+              else {
                 currentPage = 'my_watch_list';
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const MyWatchListPage()));
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MyWatchListPage()));
               }
             },
           ),
