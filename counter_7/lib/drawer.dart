@@ -1,7 +1,8 @@
-import 'form.dart';
 import 'package:flutter/material.dart';
+import 'form.dart';
 import 'main.dart';
 import 'data.dart';
+import 'my_watch_list_page.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -46,7 +47,7 @@ class MyDrawer extends StatelessWidget {
             ),
             title: Row(
               children: const [
-                Icon(Icons.home),
+                Icon(Icons.home_outlined),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0),
                   child: Text('counter_7'),
@@ -110,6 +111,29 @@ class MyDrawer extends StatelessWidget {
                 currentPage = 'data_budget';
                 Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => const MyData()));
+              }
+            },
+          ),
+          ListTile(
+            contentPadding: const EdgeInsets.only(
+              left: 8,
+            ),
+            title: Row(
+              children: const [
+                Icon(Icons.movie_outlined),
+                Padding(
+                  padding: EdgeInsets.only(left: 8.0),
+                  child: Text('My Watch List'),
+                )
+              ],
+            ),
+            onTap: () {
+              if (currentPage == 'my_watch_list') {
+                Navigator.pop(context);
+              } else {
+                currentPage = 'my_watch_list';
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const MyWatchListPage()));
               }
             },
           ),
