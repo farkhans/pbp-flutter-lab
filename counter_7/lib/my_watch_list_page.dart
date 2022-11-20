@@ -1,5 +1,4 @@
 import 'package:counter_7/drawer.dart';
-import 'package:counter_7/models/my_watch_list.dart';
 import 'package:counter_7/watch_list_detail.dart';
 import 'package:flutter/material.dart';
 import 'futures/my_watch_list_future.dart';
