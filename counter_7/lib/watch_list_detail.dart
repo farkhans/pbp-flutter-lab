@@ -103,7 +103,10 @@ class _WatchListDetailState extends State<WatchListDetail> {
                     'Review',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  Text(widget.watchList.fields.review),
+                  Text(
+                    widget.watchList.fields.review,
+                    textAlign: TextAlign.justify,
+                  ),
                 ],
               ),
             ),

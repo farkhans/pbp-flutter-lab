@@ -69,16 +69,24 @@ class _MyDataState extends State<MyData> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            budget.judul,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
+                          Flexible( //ditambahkan di tugas 9
+                            child: Text(
+                              budget.judul,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 18,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
                           ),
-                          Text(
-                            DateFormat.yMMMEd().format(budget.tanggal),
-                            style: const TextStyle(fontStyle: FontStyle.italic),
+                          Padding( //ditambahkan di tugas 9
+                            padding: const EdgeInsets.only(
+                              left: 16,
+                            ),
+                            child: Text(
+                              DateFormat.yMMMEd().format(budget.tanggal),
+                              style: const TextStyle(fontStyle: FontStyle.italic),
+                            ),
                           ),
                         ],
                       ),

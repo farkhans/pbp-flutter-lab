@@ -133,5 +133,3 @@ Saya hanya menambahkan *widget* baru, untuk *widget* lainnya bisa merujuk ke [si
 5.  Membuat `FutureBuilder` di halaman daftat *watchlist*
 6.  Membuat halaman detail *watchlist*
 7.  Mengatur *routing* berkaitan dengan halaman detail *watchlist*
-
-Tantangan yang saya hadapi adalah menggunakan data lokal terbaru setiap kali memanggil halaman daftar *watchlist*. Untuk ini, saya membuat `static List` di kelas `MyWatchList` yang menyimpan *watchlist* dan `List` ini akan diisi dengan data hasil *fetch*. Namun, pengisian dengan hasil *fetch* cukup dilakukan satu kali saja. Oleh karena itu, saya membuat *flag* di halaman daftar *watchlist* yang menandakan *fetch* pertama. Jika sudah pernah di-*fetch*, data yang digunakan adalah data sebelumnya, bukan data hasil *fetch*.
