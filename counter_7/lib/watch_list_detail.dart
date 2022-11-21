@@ -47,10 +47,14 @@ class _WatchListDetailState extends State<WatchListDetail> {
                           text: 'Release Date: ',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            color: Colors.black,
                           ),
                         ),
                         TextSpan(
                           text: widget.watchList.fields.releaseDate,
+                          style: const TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
                       ],
                     ),
@@ -62,10 +66,14 @@ class _WatchListDetailState extends State<WatchListDetail> {
                           text: 'Rating: ',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            color: Colors.black,
                           ),
                         ),
                         TextSpan(
                           text: '${widget.watchList.fields.rating}/5',
+                          style: const TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
                       ],
                     ),
@@ -77,12 +85,16 @@ class _WatchListDetailState extends State<WatchListDetail> {
                           text: 'Status: ',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            color: Colors.black,
                           ),
                         ),
                         TextSpan(
                           text: widget.watchList.fields.watched
                               ? 'watched'
                               : 'yet watched',
+                          style: const TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
                       ],
                     ),
