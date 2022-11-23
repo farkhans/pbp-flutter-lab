@@ -6,12 +6,15 @@ import 'futures/my_watch_list_future.dart';
 
 class MyWatchListPage extends StatefulWidget {
   const MyWatchListPage({super.key});
-  static bool hasFetched = true;
+
   @override
   State<MyWatchListPage> createState() => _MyWatchListPageState();
 }
 
 class _MyWatchListPageState extends State<MyWatchListPage> {
+  static List<MyWatchList> _listOfMyWatchLists = [];
+  static bool _hasFetched = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,16 +33,16 @@ class _MyWatchListPageState extends State<MyWatchListPage> {
                 child: Text("Tidak ada my watch list!"),
               );
             } else {
-              if (MyWatchListPage.hasFetched) {
-                MyWatchList.watchList = snapshot.data!;
-                MyWatchListPage.hasFetched = false;
+              if (_hasFetched) {
+                _listOfMyWatchLists = snapshot.data!;
+                _hasFetched = false;
               }
               return ListView.builder(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 0,
                   vertical: 20,
                 ),
-                itemCount: MyWatchList.watchList.length,
+                itemCount: _listOfMyWatchLists.length,
                 itemBuilder: (context, index) => GestureDetector(
                   onTap: () {
                     MyDrawer.currentPage = 'detail';
@@ -47,7 +50,7 @@ class _MyWatchListPageState extends State<MyWatchListPage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => WatchListDetail(
-                              watchList: MyWatchList.watchList[index])),
+                              watchList: _listOfMyWatchLists[index])),
                     );
                   },
                   child: Container(
@@ -61,7 +64,7 @@ class _MyWatchListPageState extends State<MyWatchListPage> {
                       borderRadius: BorderRadius.circular(15.0),
                       boxShadow: [
                         BoxShadow(
-                            color: MyWatchList.watchList[index].fields.watched
+                            color: _listOfMyWatchLists[index].fields.watched
                                 ? Colors.green
                                 : Colors.red,
                             blurRadius: 2.0)
@@ -70,12 +73,12 @@ class _MyWatchListPageState extends State<MyWatchListPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(MyWatchList.watchList[index].fields.title),
+                        Text(_listOfMyWatchLists[index].fields.title),
                         Checkbox(
-                          value: MyWatchList.watchList[index].fields.watched,
+                          value: _listOfMyWatchLists[index].fields.watched,
                           onChanged: (bool? value) {
                             setState(() {
-                              MyWatchList.watchList[index].fields.watched =
+                              _listOfMyWatchLists[index].fields.watched =
                                   value!;
                             });
                           },

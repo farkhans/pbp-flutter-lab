@@ -40,64 +40,19 @@ class _WatchListDetailState extends State<WatchListDetail> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Release Date: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                        TextSpan(
-                          text: widget.watchList.fields.releaseDate,
-                          style: const TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
+                  createRichText(
+                    'Release Date',
+                    widget.watchList.fields.releaseDate,
                   ),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Rating: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '${widget.watchList.fields.rating}/5',
-                          style: const TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
+                  createRichText(
+                    'Rating',
+                    '${widget.watchList.fields.rating}/5',
                   ),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Status: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                        TextSpan(
-                          text: widget.watchList.fields.watched
-                              ? 'watched'
-                              : 'yet watched',
-                          style: const TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
+                  createRichText(
+                    'Status',
+                    widget.watchList.fields.watched
+                    ? 'watched'
+                    : 'yet watched',
                   ),
                   const Text(
                     'Review',
@@ -134,6 +89,28 @@ class _WatchListDetailState extends State<WatchListDetail> {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  RichText createRichText(String firstString, String secondString) {
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: '$firstString: ',
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          TextSpan(
+            text: secondString,
+            style: const TextStyle(
+              color: Colors.black,
+            ),
+          ),
+        ],
       ),
     );
   }

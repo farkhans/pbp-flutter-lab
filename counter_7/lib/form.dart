@@ -1,6 +1,7 @@
 import 'drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'models/budget.dart';
 
 class MyFormPage extends StatefulWidget {
   const MyFormPage({super.key});
@@ -189,12 +190,4 @@ class _MyFormPageState extends State<MyFormPage> {
       ),
     );
   }
-}
-
-class Budget {
-  String judul, jenis;
-  int nominal;
-  DateTime tanggal;
-  static List<Budget> listBudget = [];
-  Budget(this.judul, this.nominal, this.jenis, this.tanggal);
 }
